@@ -1,13 +1,18 @@
 gameBoard = [
-    [0],
-    [0,0,0],
-    [0,0,0,0,0]
-    ]
+  [0],
+  [0,0,0],
+  [0,0,0,0,0],
+  [0,0,0,0,0,0,0,],
+  [0,0,0,0,0,0,0,0,0,],
+  [0,0,0,0,0,0,0,0,0,0,0,]
+  ]
+rows = 6
 x = 0
-rows = 3
-y = 9
-for i in range(rows):
-  print(" " * y, end="")
-  print(gameBoard[x])
-  y -=3
-  x+=1
+y = rows*3
+def printBoard(x,y):
+  for i in range(rows):
+    print(" " * y, end="")
+    print(gameBoard[x])
+    y -=3
+    x+=1
+printBoard(x,y)
