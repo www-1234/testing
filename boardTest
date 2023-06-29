@@ -1,3 +1,4 @@
+print("Try-N-Go")
 gameBoard = [
   [0],
   [0,0,0],
@@ -6,9 +7,11 @@ gameBoard = [
   [0,0,0,0,0,0,0,0,0,],
   [0,0,0,0,0,0,0,0,0,0,0,]
   ]
+
 rows = 6
 x = 0
 y = rows*3
+
 def printBoard(x,y):
   for i in range(rows):
     print(" " * y, end="")
@@ -16,3 +19,9 @@ def printBoard(x,y):
     y -=3
     x+=1
 printBoard(x,y)
+
+def inputMove():
+  gameBoard[int(input("Input Row: "))-1][int(input("Input Column: "))-1] = 1
+  printBoard(x,y)
+
+inputMove()
