@@ -1,4 +1,4 @@
-print("Try-N-Go")
+print("Try-N-Go\n")
 gameBoard = [
   [0],
   [0,0,0],
@@ -19,6 +19,7 @@ def printBoard(x,y):
     y -=3
     x+=1
 printBoard(x,y)
+print("\n")
 
 turnCounter = 0
 p = 0 
@@ -43,13 +44,21 @@ def inputMove(p):
       break
   printBoard(x,y)
 
+def checkFor():
+  a = 0
+  b = 0
+  if (gameBoard[a][b] and gameBoard[a+1][b] and gameBoard[a+1][b+1] and gameBoard[a+1][b+2]) != 0:
+    print(f"Triangle [{a},{b}] [{a+1},{b}] [{a+1},{b+1}] [{a+1},{b+2}] Filled")
+
 run = 1
 def playGame(p, turnCounter):
   while run == 1:
+    print(f"turn is {turnCounter+1}")
+    print(f"p is {p+1}")
     p = turnCounter%2
     inputMove(p)
+    checkFor()
     turnCounter+=1
-    print(f"turn is {turnCounter}")
-    print(f"p is {p}")
+    print("\n")
 
 playGame(p, turnCounter)
