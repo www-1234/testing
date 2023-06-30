@@ -31,7 +31,12 @@ def inputMove(p):
         raise IndexError
       elif c < 0:
         raise IndexError
-      gameBoard[r][c] = (p+1)
+      if gameBoard[r][c] == 0:
+        gameBoard[r][c] = (p+1)
+      else:
+        raise ValueError
+    except ValueError:
+      print("Error: Spot Already Taken")
     except IndexError:
       print("Error: Outside of Range")
     else:
