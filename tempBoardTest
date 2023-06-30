@@ -53,17 +53,18 @@ def checkForT1A():
       while b < len(gameBoard[a]):
         if (gameBoard[a][b] and gameBoard[a+1][b] and gameBoard[a+1][b+1] and gameBoard[a+1][b+2]) != 0:
           print(f"Triangle [{a+1},{b+1}] [{a+2},{b+1}] [{a+2},{b+2}] [{a+2},{b+3}] Filled")
-        b += 1
+        b += 2
       a += 1
   except:
     pass
 
 def checkForT1B():
-    a = 2
-    b = 2
-    while a < (len(gameBoard)-2):
+    a = 3
+    b = 3
+    while a < (len(gameBoard)):
+        
         if (gameBoard[a][b] and gameBoard[a-1][b] and gameBoard[a-1][b-1] and gameBoard[a-1][b-2]) != 0:
-            print(f"Triangle Filled")
+            print(f"Triangle [{a},{b-1}] [{a},{b}] [{a},{b+1}] [{a+1},{b+1}] Filled")
         a += 1
 
 run = 1
