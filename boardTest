@@ -20,8 +20,29 @@ def printBoard(x,y):
     x+=1
 printBoard(x,y)
 
-def inputMove():
-  gameBoard[int(input("Input Row: "))-1][int(input("Input Column: "))-1] = 1
+turnCounter = 0
+p = 0 
+def inputMove(p):
+  while True:
+    r = int(input("Input Row: "))-1
+    c = int(input("Input Column: "))-1
+    try:
+      if r or c < 0:
+        raise IndexError
+      gameBoard[r][c] = (p+1)
+    except IndexError:
+      print("Error: Outside of Range")
+    else:
+      break
   printBoard(x,y)
 
-inputMove()
+run = 1
+def playGame(p, turnCounter):
+  while run == 1:
+    p = turnCounter%2
+    inputMove(p)
+    turnCounter+=1
+    print(f"turn is {turnCounter}")
+    print(f"p is {p}")
+
+playGame(p, turnCounter)
