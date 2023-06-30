@@ -27,7 +27,9 @@ def inputMove(p):
     r = int(input("Input Row: "))-1
     c = int(input("Input Column: "))-1
     try:
-      if r or c < 0:
+      if r < 0:
+        raise IndexError
+      elif c < 0:
         raise IndexError
       gameBoard[r][c] = (p+1)
     except IndexError:
