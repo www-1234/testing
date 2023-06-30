@@ -47,8 +47,16 @@ def inputMove(p):
 def checkFor():
   a = 0
   b = 0
-  if (gameBoard[a][b] and gameBoard[a+1][b] and gameBoard[a+1][b+1] and gameBoard[a+1][b+2]) != 0:
-    print(f"Triangle [{a},{b}] [{a+1},{b}] [{a+1},{b+1}] [{a+1},{b+2}] Filled")
+  try:
+    while a < len(gameBoard):
+      b = 0
+      while b < len(gameBoard[a]):
+        if (gameBoard[a][b] and gameBoard[a+1][b] and gameBoard[a+1][b+1] and gameBoard[a+1][b+2]) != 0:
+          print(f"Triangle [{a+1},{b+1}] [{a+2},{b+1}] [{a+2},{b+2}] [{a+2},{b+3}] Filled")
+        b += 1
+      a += 1
+  except:
+    pass
 
 run = 1
 def playGame(p, turnCounter):
