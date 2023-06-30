@@ -58,14 +58,21 @@ def checkForT1A():
   except:
     pass
 
+#this function is bugged, stops checking certain values
 def checkForT1B():
     a = 3
     b = 3
-    while a < (len(gameBoard)):
-        
-        if (gameBoard[a][b] and gameBoard[a-1][b] and gameBoard[a-1][b-1] and gameBoard[a-1][b-2]) != 0:
-            print(f"Triangle [{a},{b-1}] [{a},{b}] [{a},{b+1}] [{a+1},{b+1}] Filled")
+    try:
+      while a < (len(gameBoard)):
+        b = 3
+        while b < len(gameBoard[a]):
+          print(f"checking {a+1}, {b+1}")
+          if (gameBoard[a][b] and gameBoard[a-1][b] and gameBoard[a-1][b-1] and gameBoard[a-1][b-2]) != 0:
+              print(f"Triangle [{a},{b-1}] [{a},{b}] [{a},{b+1}] [{a+1},{b+1}] Filled")
+          b += 2
         a += 1
+    except:
+      pass
 
 run = 1
 def playGame(p, turnCounter):
