@@ -44,7 +44,7 @@ def inputMove(p):
       break
   printBoard(x,y)
 
-def checkFor():
+def checkForT1A():
   a = 0
   b = 0
   try:
@@ -53,10 +53,40 @@ def checkFor():
       while b < len(gameBoard[a]):
         if (gameBoard[a][b] and gameBoard[a+1][b] and gameBoard[a+1][b+1] and gameBoard[a+1][b+2]) != 0:
           print(f"Triangle [{a+1},{b+1}] [{a+2},{b+1}] [{a+2},{b+2}] [{a+2},{b+3}] Filled")
-        b += 1
+        b += 2
       a += 1
   except:
     pass
+
+def checkForT1B():
+    a = 3
+    b = 3
+    try:
+      while a < (len(gameBoard)):
+        b = 3
+        while b < (len(gameBoard[a])-2):
+          if (gameBoard[a][b] and gameBoard[a-1][b] and gameBoard[a-1][b-1] and gameBoard[a-1][b-2]) != 0:
+              print(f"Triangle [{a},{b-1}] [{a},{b}] [{a},{b+1}] [{a+1},{b+1}] Filled")
+          b += 2
+        a += 1
+    except:
+      pass
+
+def checkForT2A():
+  a = 0
+  b = 0
+  while a < (len(gameBoard)-2):
+    b = 0
+    while b < len(gameBoard[a]):
+      if (gameBoard[a][b] and gameBoard[a+1][b] and gameBoard[a+1][b+1] and gameBoard[a+1][b+2] and gameBoard[a+2][b] and gameBoard[a+2][b+1] and gameBoard[a+2][b+2] and gameBoard[a+2][b+3] and gameBoard[a+2][b+4]) != 0:
+        print(f"Triangle [{a+1},{b+1}] [{a+2},{b+1}] [{a+2},{b+2}] [{a+2},{b+3}] [{a+3},{b+1}] [{a+3},{b+2}] [{a+3},{b+3}] [{a+3},{b+4}] [{a+3},{b+5}] Filled")
+      b += 2
+    a += 1
+
+
+def checkForT2B():
+  if (gameBoard[3][5] and gameBoard[3][4] and gameBoard[3][3] and gameBoard[3][2] and gameBoard[3][1] and gameBoard[4][4] and gameBoard[4][5] and gameBoard[4][3] and gameBoard[5][5]) != 0:
+    print("Triangle [4,2] [4,3] [4,4] [4,5] [4,6] [5,4] [5,5] [5,6] [6,6] Filled")
 
 run = 1
 def playGame(p, turnCounter):
@@ -65,7 +95,10 @@ def playGame(p, turnCounter):
     print(f"p is {p+1}")
     p = turnCounter%2
     inputMove(p)
-    checkFor()
+    checkForT1A()
+    checkForT1B()
+    checkForT2A()
+    checkForT2B()
     turnCounter+=1
     print("\n")
 
