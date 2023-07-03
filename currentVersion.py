@@ -1,4 +1,4 @@
-print("Try-N-Go\n")
+print("Try-N-Go\n---------------------------------------")
 gameBoard = [
   [0],
   [0,0,0],
@@ -153,9 +153,8 @@ def checkForT2B():
       if claimTriangle(5) == 1:
         gameBoard[3][5] = gameBoard[3][4] = gameBoard[3][3] = gameBoard[3][2] = gameBoard[3][1] = gameBoard[4][4] = gameBoard[4][5] = gameBoard[4][3] = gameBoard[5][5] = 0
 
-run = 1
 def playGame(p, turnCounter):
-  while run == 1:
+  while True:
     printBoard(x,y)
     p = turnCounter%2
     print(f"Turn {turnCounter+1}")
@@ -167,6 +166,13 @@ def playGame(p, turnCounter):
     checkForT2B()
     print(f"P1 Points: {pointsA}\nP2 Points: {pointsB}")
     turnCounter+=1
-    print("\n")
-
+    print("\n---------------------------------------")
+    if turnCounter == 45:
+      break
 playGame(p, turnCounter)
+if pointsA > pointsB:
+  print("Game Over: Player 1 Wins")
+if pointsB > pointsA:
+  print("Game Over: Player 2 Wins")
+if pointsA == pointsB:
+  print("Game Over: Tie")
